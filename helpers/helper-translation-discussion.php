@@ -830,7 +830,7 @@ class Helper_Translation_Discussion extends GP_Translation_Helper {
 				'name'        => __( 'Typo' ),
 				'explanation' => __( 'The translation has a typo. E.g., it is using the \'apostrope\' word instead of \'apostrophe\'.' ),
 			),
-			'ia'          => array(
+			'ai'          => array(
 				'name'        => __( 'AI' ),
 				'explanation' => __( 'The translator has used some AI or other machine translation tool without additional manual review, and its quality is low.' ),
 			),
