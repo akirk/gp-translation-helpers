@@ -11,7 +11,7 @@ jQuery( function( $ ) {
 
 	let focusedRowId = '';
 	// When a user clicks on a sidebar tab, the visible tab and div changes.
-	$gp.editor.table.on( 'click', '.sidebar-tabs li', function() {
+	$( document ).on( 'click', '.sidebar-tabs li', function() {
 		const tab = $( this );
 		const tabId = tab.attr( 'data-tab' );
 		const divId = tabId.replace( 'tab', 'div' );
@@ -23,7 +23,7 @@ jQuery( function( $ ) {
 	// When a new translation row is opened (with double click, clicking in the "Details" button,
 	// or with the hotkeys), the translation textarea is focused, so the tabs (header tabs and
 	// divs with the content) for the right sidebar are updated.
-	$gp.editor.table.on( 'focus', 'tr.editor textarea.foreign-text', function() {
+	$( document ).on( 'focus', 'tr.editor textarea.foreign-text', function() {
 		const tr = $( this ).closest( 'tr.editor' );
 		const rowId = tr.attr( 'row' );
 		const translation_status = tr.find( '.panel-header' ).find( 'span' ).html();
@@ -48,7 +48,7 @@ jQuery( function( $ ) {
 		}
 	} );
 
-	$gp.editor.table.on( 'click', 'a.retry-auto-review', function( event ) {
+	$( document ).on( 'click', 'a.retry-auto-review', function( event ) {
 		const tr = $( this ).closest( 'tr.editor' );
 		const rowId = tr.attr( 'row' );
 		event.preventDefault();
@@ -74,7 +74,7 @@ jQuery( function( $ ) {
 	} );
 
 	// Shows/hides the reply form for a comment in the discussion.
-	$gp.editor.table.on( 'click', 'a.comment-reply-link', function( event ) {
+	$( document ).on( 'click', 'a.comment-reply-link', function( event ) {
 		const commentId = $( this ).attr( 'data-commentid' );
 		event.preventDefault();
 		$( '#comment-reply-' + commentId ).toggle().find( 'textarea' ).focus();
@@ -110,7 +110,7 @@ jQuery( function( $ ) {
 	}
 
 	// Sends the new comment or the reply to an existing comment.
-	$gp.editor.table.on( 'submit', '.meta.discussion .comment-form', function( e ) {
+	$( document ).on( 'submit', '.meta.discussion .comment-form', function( e ) {
 		const $commentform = $( e.target );
 		const postId = $commentform.attr( 'id' ).split( '-' )[ 1 ];
 		const divDiscussion = $commentform.closest( '.meta.discussion' );
@@ -178,7 +178,7 @@ jQuery( function( $ ) {
 	} );
 
 	// Copies the translation from another language to the current translation.
-	$gp.editor.table.on( 'click', 'button.sidebar-other-locales', function() {
+	$( document ).on( 'click', 'button.sidebar-other-locales', function() {
 		const textToCopy = $( this ).closest( 'li' ).find( 'a' ).text();
 		const textareaToPaste = $( this ).closest( '.editor' ).find( 'textarea.foreign-text' );
 		let selectionStart = textareaToPaste.get( 0 ).selectionStart;
