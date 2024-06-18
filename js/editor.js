@@ -42,9 +42,7 @@ jQuery( function( $ ) {
 		}
 		if ( ! $gp_comment_feedback_settings.openai_key || ! $gp_editor_options.can_approve || ( 'waiting' !== translation_status && 'fuzzy' !== translation_status ) ) {
 			tr.find( '.details-chatgpt' ).hide();
-		} else if ( ! chatgpt_review_enabled ) {
-			tr.find( '.openai-review' ).hide();
-		} else {
+		} else if ( chatgpt_review_enabled ) {
 			fetchOpenAIReviewResponse( rowId, tr, false );
 		}
 	} );
